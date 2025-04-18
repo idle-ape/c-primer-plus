@@ -9,9 +9,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const updateBtn = document.getElementById('update-docs-btn');
     const updateStatus = document.getElementById('update-status');
     const lastUpdatedSpan = document.getElementById('last-updated');
+    const clearButton = document.getElementById('clear-button');
 
     let abortController = null;
     let searchTimeout = null;
+
+    searchInput.addEventListener('input', function () {
+        clearButton.style.display = this.value ? 'block' : 'none';
+    });
+
+    clearButton.addEventListener('click', function () {
+        searchInput.value = '';
+        searchInput.focus();
+        clearButton.style.display = 'none';
+
+        resultsContainer.innerHTML = `
+            <div class="no-results">
+                <p>Please enter search keywords</p>
+            </div>
+        `;
+        loadingElement.style.display = 'none';
+        return;
+    });
 
     // Initialize last updated time
     function initLastUpdated() {

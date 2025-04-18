@@ -208,3 +208,39 @@ footer {
     color: #666;
     font-size: 14px;
 }
+
+.search-box {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 12px 15px;
+    padding-right: 35px;
+    /* 为清除按钮留出空间 */
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.clear-button {
+    position: absolute;
+    right: 85px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    padding: 0 10px;
+    display: none;
+    line-height: 1;
+}
+
+.clear-button:hover {
+    color: #666;
+}
